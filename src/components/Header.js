@@ -1,10 +1,13 @@
-import React from "react";
+import React, { Component } from "react";
+import { Link } from 'react-router'
 
-export default class Header extends React.Component {
+
+class Header extends Component {
 	render() {
 		const styles = this.getStyles();
 
 		return (
+			<div>
 			<header style={ styles.wrapper }>
 				<div>
 					<img
@@ -12,12 +15,22 @@ export default class Header extends React.Component {
 						src="assets/react-logo.svg"
 						style={ styles.logoImage }
 					/>
-					<h1 style={ styles.header }>rMail</h1>
+					<Link to="/"><h1 style={ styles.header }>rMail</h1></Link>
 				</div>
 
 				<div>
+					<Link to="/inbox">
+					<span style={ styles.link }>Inbox</span>
+				</Link>
+					<Link to="/draft">
+					<span style={ styles.link }>Draft</span>
+				</Link>
+					<Link to="/contacts">
+					<span style={ styles.link }>Contacts</span>
+				</Link>
 				</div>
 			</header>
+		</div>
 		);
 	}
 
@@ -48,3 +61,4 @@ export default class Header extends React.Component {
 		}
 	}
 }
+export default Header
